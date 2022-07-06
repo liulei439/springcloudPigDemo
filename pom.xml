@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.learing.pigcloud</groupId>
+    <artifactId>pig</artifactId>
+    <name>${project.artifactId}</name>
+    <version>1.0.0</version>
+    <modules>
+        <module>pig-common</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- springboot spring-cloud spring-cloud-alibaba 版本选择 -->
+        <spring-boot.version>2.7.0</spring-boot.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <!-- maven编译选择项 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- spring-boot-admin监控微服务系统 -->
+        <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
+        <!-- 暂时未知其功能 -->
+        <spring.authorization.version>0.3.0</spring.authorization.version>
+        <!-- hutool工具包 -->
+        <hutool.version>5.8.2</hutool.version>
+        <!-- 多数据源工具包 -->
+        <dynamic-ds.version>3.5.1</dynamic-ds.version>
+        <!-- 验证码工具包 -->
+        <captcha.version>2.2.2</captcha.version>
+        <!-- 暂时未知其功能-->
+        <velocity.version>2.3</velocity.version>
+        <velocity.tool.version>3.1</velocity.tool.version>
+        <configuration.version>1.10</configuration.version>
+        <!-- jasypt加密解密工具包 -->
+        <jasypt.version>2.1.0</jasypt.version>
+        <!-- swagger3 -->
+        <swagger.fox.version>3.0.0</swagger.fox.version>
+        <!-- 分布式调用平台 -->
+        <xxl-job.version>2.3.1</xxl-job.version>
+        <!-- docker相关版本或者信息 暂时未知其功能-->
+        <docker.plugin.version>0.32.0</docker.plugin.version>
+        <docker.host>http://192.168.0.100:2375</docker.host>
+        <docker.registry>192.168.0.100</docker.registry>
+        <docker.namespace>pig4cloud</docker.namespace>
+        <docker.username>username</docker.username>
+        <docker.password>password</docker.password>
+        <!-- git相关 -->
+        <git.commit.plugin>4.9.9</git.commit.plugin>
+        <!-- check相关 -->
+        <spring.checkstyle.plugin>0.0.32</spring.checkstyle.plugin>
+    </properties>
+
+    <!-- 以下是全局依赖,所有的模块都会引入  -->
+    <dependencies>
+        <!--配置文件处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--配置文件加解密-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt.version}</version>
+        </dependency>
+        <!--监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--监控客户端-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin.version}</version>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--测试依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- pig 公共版本定义-->
+            <dependency>
+                <groupId>com.learing.pigcloud</groupId>
+                <artifactId>pig-common-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring boot 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud 依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud alibaba 依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
