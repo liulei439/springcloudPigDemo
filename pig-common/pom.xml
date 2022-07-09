@@ -18,6 +18,7 @@
     <modules>
         <module>pig-common-bom</module>
         <module>pig-common-core</module>
+        <module>pig-common-datasource</module>
     </modules>
 
 

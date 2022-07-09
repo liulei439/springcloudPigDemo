@@ -1,6 +1,6 @@
 package com.learn.common.core.constant;
 
-public class SecurityConstants {
+public interface SecurityConstants {
     /**
      * 角色前缀
      */

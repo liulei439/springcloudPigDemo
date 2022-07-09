@@ -1,0 +1,6 @@
+com.learn.common.core.config.TaskExecutorConfiguration
+com.learn.common.core.config.JacksonConfiguration
+com.learn.common.core.config.RedisTemplateConfiguration
+com.learn.common.core.config.RestTemplateConfiguration
+com.learn.common.core.util.SpringContextHolder
+com.learn.common.core.config.WebMvcConfiguration
